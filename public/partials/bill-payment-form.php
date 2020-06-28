@@ -33,7 +33,7 @@
                 </div>
                 <?php if($data['public_key']): ?>
                     <div ng-class="{ button_hide: !amount }">
-                        <script src="https://beta.mypaga.com/checkout/"
+                        <script src="<?= $data['checkout_url'] ?>"
                         data-public_key="<?= $data['public_key'] ?>"
                         data-amount={{amount}}
                         data-currency="NGN"

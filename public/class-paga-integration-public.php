@@ -107,6 +107,7 @@ class Paga_Integration_Public {
 		$data['reference'] = paga_generate_reference();
 		$data['account_number'] = get_option('paga_account');
 		$data['public_key'] = get_option('paga_credential');
+		$data['checkout_url'] = get_option('paga_url').'/checkout';
 		include plugin_dir_path( __FILE__ ) . 'partials/airtime-recharge-form.php';
 
 		$output = ob_get_contents();
@@ -120,6 +121,7 @@ class Paga_Integration_Public {
 		ob_start();
 		$data['merchants_url'] = get_site_url().'/wp-json/paga/v1/getMerchants?api_key='.API_TOKEN.'&filter=1';
 		$data['merchant_services_url'] = get_site_url().'/wp-json/paga/v1/getMerchantServices?api_key='.API_TOKEN;
+		$data['checkout_url'] = get_option('paga_url').'/checkout';
 		$data['reference'] = paga_generate_reference();
 		$data['account_number'] = get_option('paga_account');
 		$data['public_key'] = get_option('paga_credential');

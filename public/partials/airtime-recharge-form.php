@@ -2,10 +2,10 @@
     <div class="payment_container">
         <div class="payment_block">
             <form>
-                <div class="form_row">
+                <!-- <div class="form_row">
                     <label>Full Name</label>
                     <input type="text" ng-model="fullname" class="form-control">
-                </div>
+                </div> -->
                 <div class="form_row">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" ng-model="email" class="form-control">
@@ -23,7 +23,7 @@
                     <input type="text" ng-model="network" name="network" id="network" class="form-control">
                 </div>
                 <?php if($data['public_key']): ?>
-                    <script src="https://beta.mypaga.com/checkout/" 
+                    <script src="<?= $data['checkout_url'] ?>" 
                     data-public_key="<?= $data['public_key'] ?>" 
                     data-amount="1000" data-currency="NGN" 
                     data-payment_reference="<?= $data['reference'] ?>" 
@@ -43,7 +43,7 @@
 <script>
     var app = angular.module('airtime', []);
     app.controller('airtimeController', function($scope) {
-        $scope.fullname = "";
+        // $scope.fullname = "";
         $scope.amount = 100;
         $scope.email = '';
         $scope.phone = ''

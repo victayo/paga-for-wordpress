@@ -73,7 +73,7 @@ class PagaController
             "amount" => $amount,
             "destinationPhoneNumber" => $destination
         ];
-        $url = $this->baseUrl.'/business-rest/secured/airtimePurchase';
+        $url = $this->baseUrl.'/paga-webservices/business-rest/secured/airtimePurchase';
         $response = $this->curl($url, $post, $sha512);
         do_action('paga_transaction_log', $reference, 'PAGA', 'AIRTIME PURCHASE', $response);
         return rest_ensure_response(json_decode($response));
@@ -108,7 +108,7 @@ class PagaController
             return $this->emptyResponse('merchants');
         }
         $filter = boolval($request->get_param( 'filter' )); // should filter merchants based on configured merchants on settings?
-        $url = $this->baseUrl. '/business-rest/secured/getMerchants';
+        $url = $this->baseUrl. '/paga-webservices/business-rest/secured/getMerchants';
         $reference = paga_generate_reference();
         $sha512 = paga_get_SHA512("{$reference}{$this->hash}");
         $post = [
@@ -147,7 +147,7 @@ class PagaController
         if(!$this->isSetup){
             return $this->emptyResponse('services');
         }
-        $url = $this->baseUrl.'/business-rest/secured/getMerchantServices';
+        $url = $this->baseUrl.'/paga-webservices/business-rest/secured/getMerchantServices';
         $data = $request->get_params();
         $merchant = $data['merchant'];
         $reference = paga_generate_reference();
@@ -161,7 +161,7 @@ class PagaController
     }
 
     public function merchantPayment(WP_REST_Request $request){
-        $url = $this->baseUrl.'/business-rest/secured/merchantPayment';
+        $url = $this->baseUrl.'/paga-webservices/business-rest/secured/merchantPayment';
         $data = $request->get_params();
         $reference = paga_generate_reference();
         $amount = $data['amount'];
