@@ -124,8 +124,6 @@ class Paga_Integration {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-paga-integration-public.php';
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/PagaController.php';
-
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'services/TransactionLog.php';
 
 		$this->loader = new Paga_Integration_Loader();
@@ -228,6 +226,7 @@ class Paga_Integration {
 	}
 
 	public function loadController(){
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/PagaController.php';
 		$pagaController = new PagaController();
 		$this->loader->add_action('rest_api_init', $pagaController, 'register_routes');
 	}

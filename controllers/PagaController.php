@@ -105,7 +105,7 @@ class PagaController
 
     public function getMerchants(\WP_REST_Request $request){
         if(!$this->isSetup){
-            return $this->emptyResponse('merchants');
+            return rest_ensure_response($this->emptyResponse('merchants'));
         }
         $filter = boolval($request->get_param( 'filter' )); // should filter merchants based on configured merchants on settings?
         $url = $this->baseUrl. '/paga-webservices/business-rest/secured/getMerchants';
@@ -145,7 +145,7 @@ class PagaController
 
     public function getMerchantServices(\WP_REST_Request $request){
         if(!$this->isSetup){
-            return $this->emptyResponse('services');
+            return rest_ensure_response($this->emptyResponse('services'));
         }
         $url = $this->baseUrl.'/paga-webservices/business-rest/secured/getMerchantServices';
         $data = $request->get_params();

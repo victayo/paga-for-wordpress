@@ -110,7 +110,7 @@ class Paga_Integration_Admin
 	{
 		//add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
 		// add_menu_page('Page Integration Page', 'Page Integration', 'administrator', 'paga_integration', [$this, 'menu_page']);
-		add_menu_page('Page Integration Page', 'Page Integration', 'administrator', 'paga_integration', [$this, 'display_plugin_admin_settings']);
+		add_menu_page('Paga Integration Page', 'Paga Integration', 'administrator', 'paga_integration', [$this, 'display_plugin_admin_settings']);
 
 		//add_submenu_page( '$parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function );
 		// add_submenu_page('paga_integration', 'Paga Integration Setting', 'Settings', 'administrator',  'paga_integration_settings', [$this, 'display_plugin_admin_settings']);

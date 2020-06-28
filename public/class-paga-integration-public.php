@@ -117,7 +117,7 @@ class Paga_Integration_Public {
 	}
 
 	public function billPayment(){
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers\PagaController.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'controllers/PagaController.php';
 		ob_start();
 		$data['merchants_url'] = get_site_url().'/wp-json/paga/v1/getMerchants?api_key='.API_TOKEN.'&filter=1';
 		$data['merchant_services_url'] = get_site_url().'/wp-json/paga/v1/getMerchantServices?api_key='.API_TOKEN;
